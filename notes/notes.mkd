@@ -1,0 +1,67 @@
+# Authentication and Autherization
+
+The common practice is to `protect` all resources whenever need.
+
+While user login, we need to capture `email` or `username`, and `password` to check in the database.
+Based on this credentials, user will be granted with a token. (Thanks to _`jsonwebtoken`_ package)
+
+```bash
+$npm i jsonwebtoken # to install jsonwebtoken
+```
+
+```javascript
+const jwt = require('jsonwebtoken'); // to use jsonwebtoken
+```
+
+## Defining a middleware function
+
+We have to define the protect `middleware` function that will check the user before accessing certain resource for more security purpose.
+
+This _`middleware`_ will run automatically to check if the current login user is authorized to perform certain operation.
+
+### Middleware function
+
+```js
+const protect = async (req, res, next) => {
+  // Get token
+  let token;
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith('Bearer')
+  )
+    token = headers.authorization.split(' ')[1];
+  if (!token) throw new Error('Unauthorized');
+
+  // We decode the token
+  const currentUser = jwt.decode(token, process.env.JWT_SECRET);
+  req.user = currentUser; //This user will then be propagated to another middleware functions after this middleware
+};
+```
+
+## Role based authentication
+
+The user in the system may have different roles. Forexample, `admin` and `normal users`
+
+We need also define the _`middleware`_ function that will check for the role to protect resource based on role.
+
+This middleware function will receive role. However we can not pass the arguments in the middleware function.
+
+Now how we will do this...?
+We have to create a wrapper function that will return this middleware function
+
+`Forexample`
+
+```js
+const restrict = (...roles) => {
+  return (req, res, next) => {
+    //the req.user is from the previous middleware function (protect)
+    if (!roles.include(req.user.role)) return next(new Error('...'));
+  };
+};
+```
+
+Now to access certain endpoint, eg. delete we need to restrict and check if the user is authorized.
+
+```js
+router.delete(protect, restrict(['admin', '...']), deleteHandler);
+```

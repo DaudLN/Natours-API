@@ -1,0 +1,39 @@
+@font-face {
+    font-family: "Open Sans";
+
+    src: url("../../assets/fonts/OpenSans/OpenSans-VariableFont_wdth,wght.ttf");
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 20px;
+    font-family: "Open Sans", sans-serif;
+}
+
+.profile-card {
+    background: #3232;
+    box-shadow: 3px 4px 3px 7px #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px 0px;
+    border-left: #255 solid 4px;
+}
+
+.profile-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.avatar {
+    height: 12rem;
+    border: solid 2px #255;
+    border-radius: 50%;
+    right: 50%;
+}

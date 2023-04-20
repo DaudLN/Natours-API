@@ -1,0 +1,125 @@
+[{
+  "_id": {
+    "$oid": "64315848daf3ecb2207e922d"
+  },
+  "name": "Daud Linus Namayala",
+  "email": "daudnamayala@gmail.com",
+  "password": "$2b$12$.zC/42EhZ4H/OH5OWpoiG.7wzMXHHtMlYRmSaLhXxjZgmQn.mk4iG",
+  "__v": 0,
+  "role": "user",
+  "passwordChangedAt": {
+    "$date": "2023-04-12T08:44:12.745Z"
+  }
+},{
+  "_id": {
+    "$oid": "64315871daf3ecb2207e922f"
+  },
+  "name": "Joseph Linus Namayala",
+  "email": "namayalajl@gmail.com",
+  "password": "$2b$12$Tb/uB/J/i8lnrLRAZPHZgunrLavttLDcTMJ6.FuRmBW6XLC06QRr.",
+  "__v": 0,
+  "role": "guide"
+},{
+  "_id": {
+    "$oid": "64315889daf3ecb2207e9231"
+  },
+  "name": "Rambee Jiles",
+  "email": "rambee1jr@gmail.com",
+  "password": "$2b$12$ixJsMpfKB.i34AV5J.Xla.WK/Os0DYcto/FqEFGj9TpRVyYTooBwG",
+  "__v": 0,
+  "role": "user"
+},{
+  "_id": {
+    "$oid": "643158afdaf3ecb2207e9233"
+  },
+  "name": "Hadija Malembo",
+  "email": "hadija@gmail.com",
+  "password": "$2b$12$cN/BIzEMwAfNwBP47hpteO3nfkmdjsXJqFfnFCo55NLw6KjT0owNe",
+  "__v": 0,
+  "role": "guide"
+},{
+  "_id": {
+    "$oid": "643158e3daf3ecb2207e9236"
+  },
+  "name": "Faraja Malembo",
+  "email": "faraja.malembo@gmail.com",
+  "password": "$2b$12$3ahCmuD0m449d8qB9YDXAu8NmFiMFfWq71CDZjh0MjzQvBxxYhBlK",
+  "__v": 0,
+  "role": "user"
+},{
+  "_id": {
+    "$oid": "643158efdaf3ecb2207e9238"
+  },
+  "name": "Ismail Malembo",
+  "email": "ismail.malembo@gmail.com",
+  "password": "$2b$12$VXpmN9kPfI7eAIjE4rrRzuXP9MDStcsB7fsAo5HxGiRgsjzf.0xAO",
+  "__v": 0,
+  "role": "lead-guide"
+},{
+  "_id": {
+    "$oid": "6431590ddaf3ecb2207e923a"
+  },
+  "name": "Letisia Haonga",
+  "email": "cia@gmail.com",
+  "password": "$2b$12$8KtCSHb.4wIHH7PI6YwgsesreA9XUYobT2lhFrbKpnFYzKdCaJh6a",
+  "__v": 0,
+  "role": "user"
+},{
+  "_id": {
+    "$oid": "64317b7a5a0af1505fd9955b"
+  },
+  "name": "Asumta Ades",
+  "email": "asumtaades@gmail.com",
+  "password": "$2b$12$b/4GlMMqFAuLhtdFhdOFM.prJTdI3TzS9nsHNYhZ3A7ayaJKGEaxO",
+  "__v": 0,
+  "role": "user"
+},{
+  "_id": {
+    "$oid": "6431b81cd1b692b7bcadf202"
+  },
+  "name": "Administrator!",
+  "email": "admin@natour.io",
+  "password": "$2b$12$.09sSVkKi3VhfeDwcHYeE.ROyy0a3IHixRFcUxlb936Pjc9r/GYWi",
+  "role": "admin",
+  "__v": 0,
+  "passwordChangedAt": {
+    "$date": "2023-04-11T12:36:06.271Z"
+  }
+},{
+  "_id": {
+    "$oid": "6433ce243acb7383c775a0a5"
+  },
+  "name": "Adinan Hamran",
+  "email": "adinan@example.com",
+  "role": "user",
+  "password": "$2b$12$PIKIROvqWVPuNDc9Hrxsu.CPWFXun8M50xJuUWNBQp45pJ0iN3Nky",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6433cf993fd7b87f02f1416a"
+  },
+  "name": "Josephine Zabron",
+  "email": "ddj@zabron.com",
+  "role": "user",
+  "password": "$2b$12$gpMJWRdZ7l3DD3J5/y7V.u1hcQJbGWIzsFg3ErDKDk8p0QgeQKhSa",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6434889f6151d2b67fe243df"
+  },
+  "name": "Lidya",
+  "email": "ayouma@lee.com",
+  "role": "user",
+  "password": "$2b$12$p8lIp7vamOq79L.F1AzgR.3XyYnbLmcVBFn4TsDWB8fdRV36wLt26",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6435813fc508e567e1d27f89"
+  },
+  "name": "John Doe",
+  "email": "johndoe@example.xyz",
+  "role": "user",
+  "password": "$2b$12$EVW3JHNPOUOByRVzDgL5b.udAHAgS16/2cVRgl6/Gdi7EkOC7IBrW",
+  "__v": 0,
+  "active": false
+}]

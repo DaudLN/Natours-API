@@ -1,0 +1,6 @@
+config.env
+package-lock.json
+.vscode
+node_modules
+node_modules
+views/dist
