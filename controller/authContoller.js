@@ -23,9 +23,6 @@ class Auth {
     res.status(statusCode).json({
       status: 'success',
       token,
-      // data: {
-      //   user,
-      // },
     });
   };
 
@@ -151,9 +148,9 @@ class Auth {
       // There is login user
       // 4. Pass data (current user to the templates using locals)
       res.locals.user = currentUser;
-      next();
+      return next();
     }
-    next();
+    return next();
   });
 
   forgotPassword = catchAsync(async (req, res, next) => {
