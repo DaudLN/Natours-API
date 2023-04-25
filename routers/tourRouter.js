@@ -16,7 +16,7 @@ tourRouter
   .route('/top-5-cheap')
   .get(tourContoller.topFiveCheapestTours, tourContoller.getAllTours);
 
-tourRouter.use(auth.protect);
+// tourRouter.use(auth.protect);
 tourRouter.route('/stats').get(tourContoller.tourStats);
 tourRouter
   .route('/monthly-plan/:year')

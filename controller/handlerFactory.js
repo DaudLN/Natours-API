@@ -71,7 +71,7 @@ exports.getAll = (Model) =>
       result: documents.length,
       requestTime: req.requestTime,
       data: {
-        documents,
+        documents
       },
     });
   });

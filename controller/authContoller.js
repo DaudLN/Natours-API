@@ -1,4 +1,3 @@
-const _ = require('lodash');
 const { promisify } = require('util');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
@@ -16,9 +15,10 @@ class Auth {
         Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000
       ),
       httpOnly: true,
+      sameSite: 'Strict',
     };
     if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
-    res.cookie('jwt', token, cookieOptions);
+    res.cookie('natourAPIJWT', token, cookieOptions);
     user.password = undefined;
     res.status(statusCode).json({
       status: 'success',
@@ -34,15 +34,16 @@ class Auth {
   };
 
   signup = catchAsync(async (req, res, next) => {
-    const userData = _.pick(req.body, [
-      'name',
-      'email',
-      'role',
-      'password',
-      'passwordConfirm',
-      'passwordChangedAt',
-    ]);
-    const user = await User.create(userData);
+    const { name, email, password, passwordConfirm, passwordChangedAt } =
+      req.body;
+
+    const user = await User.create({
+      name,
+      email,
+      password,
+      passwordConfirm,
+      passwordChangedAt,
+    });
     this.creatAndSendToken(user, status('Created'), res);
   });
 
@@ -91,8 +92,8 @@ class Auth {
       req.headers.authorization.startsWith('Bearer')
     ) {
       token = req.headers.authorization.split(' ')[1];
-    } else if (req.cookies.jwt) {
-      token = req.cookies.jwt;
+    } else if (req.cookies.natourAPIJWT) {
+      token = req.cookies.natourAPIJWT;
     }
     if (!token)
       return next(
@@ -130,9 +131,9 @@ class Auth {
 
   isLoggedIn = catchAsync(async (req, res, next) => {
     // 1. Verify token sent from the browser
-    if (req.cookies.jwt) {
+    if (req.cookies.natourAPIJWT) {
       const decoded = await promisify(jwt.verify)(
-        req.cookies.jwt,
+        req.cookies.natourAPIJWT,
         process.env.JWT_SECRET
       );
 
@@ -235,10 +236,7 @@ class Auth {
           'The previous password is incorrect'
         )
       );
-    const { password, passwordConfirm } = _.pick(req.body, [
-      'password',
-      'passwordConfirm',
-    ]);
+    const { password, passwordConfirm } = req.body;
     user.password = password;
     user.passwordConfirm = passwordConfirm;
     await user.save();

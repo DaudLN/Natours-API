@@ -43,7 +43,7 @@ const sendErrorProd = (err, res) => {
     });
   } else {
     // Catch an unhandled errors
-    console.log('ERROR 💣 ', err);
+    console.error('ERROR 💣 ', err);
     res.status(status('Internal Server Error')).json({
       status: 'error',
       message: 'Something went wrong',
