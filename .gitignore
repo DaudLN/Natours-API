@@ -1,6 +1,14 @@
-config.env
-package-lock.json
+.gitignore
 .vscode
+combined.log
+config.env
+config.env
+dist
+error.log
+index.svg
+logs
 node_modules
 node_modules
+notes
+package-lock.json
 views/dist
