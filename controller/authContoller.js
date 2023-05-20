@@ -54,12 +54,23 @@ class Auth {
         new AppError(status('Bad Request'), `Please provide email and password`)
       );
     const user = await User.findOne({ email }).select(['+password']);
-    if (!user || !(await user.checkPassword(password, user.password))) {
+    if (!user || !(await user.checkPassword(password))) {
       return next(
         new AppError(status('Unauthorized'), `Invalid email or password`)
       );
     }
     this.creatAndSendToken(user, status('OK'), res);
+  });
+
+  logout = catchAsync(async (req, res) => {
+    res.cookie('natourAPIJWT', '', {
+      httpOnly: true,
+      expires: new Date(0),
+    });
+    res.status(status('OK')).json({
+      status: 'success',
+      message: 'You have successfull logout',
+    });
   });
 
   getUser = catchAsync(async (req, res, next) => {

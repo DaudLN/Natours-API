@@ -67,9 +67,11 @@ const userSchema = mongoose.Schema({
 userSchema.pre('save', async function (next) {
   // Only run if password was actually changed
   if (!this.isModified('password')) return next();
-  // Removing passwordConfirm field. Not to persist in the database
-  this.password = await bcrypt.hash(this.password, 12);
-  this.passwordConfirm = undefined;
+
+  // Encrypt password
+  const hash = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, hash);
+  this.passwordConfirm = undefined; // Removing passwordConfirm field. Not to persist in the database
   next();
 });
 
@@ -78,11 +80,8 @@ userSchema.pre('save', async function (next) {
 This below is an instance method that compares hashed password and the
 supplied password by the user after login */
 
-userSchema.methods.checkPassword = async function (
-  candidatePassword,
-  password
-) {
-  return await bcrypt.compare(candidatePassword, password);
+userSchema.methods.checkPassword = async function (enteredPassword) {
+  return await bcrypt.compare(enteredPassword, this.password);
 };
 
 // Create jsonwebtoken

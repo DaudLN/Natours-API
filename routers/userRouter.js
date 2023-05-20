@@ -8,6 +8,7 @@ userRouter.post('/signup', auth.signup);
 userRouter.post('/login', auth.login);
 userRouter.post('/forgotPassword', auth.forgotPassword);
 userRouter.patch('/resetPassword/:token', auth.resetPassword);
+userRouter.post('/logout', auth.logout);
 
 // All routes below are accessible on login
 userRouter.use(auth.protect);

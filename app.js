@@ -13,7 +13,6 @@ const xss = require('xss-clean');
 
 const AppError = require('./util/AppError');
 const error = require('./middleware/error');
-const loger = require('./logs/winstonLoger');
 const reviewRouter = require('./routers/reviewRouter');
 const tourRouter = require('./routers/tourRouter');
 const userRouter = require('./routers/userRouter');
@@ -28,7 +27,6 @@ app.use(mongoSanitizer());
 app.use(xss());
 app.use(hpp({ whitelist: ['duration'] }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(loger);
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 app.use(cors());

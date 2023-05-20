@@ -12,7 +12,7 @@ const DB_LOCAL = process.env.DATABASE_URL;
 const PASSWORD = process.env.ALTAS_PASSWORD;
 const DATABASE = process.env.DATABASE_ATLAS.replace('<PASSWORD>', PASSWORD);
 mongoose
-  .connect(DB_LOCAL, {
+  .connect(DATABASE, {
     useNewUrlParser: true,
   })
   .then(() => {

@@ -4,8 +4,8 @@
     "dev": "NODE_ENV=development nodemon server.js",
     "prod": "NODE_ENV=production nodemon server.js",
     "debug": "ndb server.js",
-    "db-im": "node ./dev-data/import-dev-data.js --import",
-    "db-del": "node ./dev-data/import-dev-data.js --delete"
+    "db-im": "node ./cmd/import-dev-data.js --import",
+    "db-del": "node ./cmd/import-dev-data.js --delete"
   },
   "engines": {
     "node": "18.7.0"
